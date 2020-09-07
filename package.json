@@ -1,0 +1,24 @@
+{
+  "name": "guestbook",
+  "version": "1.0.0",
+  "description": "A guestbook website built in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mologuy/guestbook.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "MongoDB"
+  ],
+  "author": "mologuy",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mologuy/guestbook/issues"
+  },
+  "homepage": "https://github.com/mologuy/guestbook#readme"
+}
