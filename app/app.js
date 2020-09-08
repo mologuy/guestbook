@@ -10,7 +10,8 @@ app.get('/', function(req, res){
     res.render('index', {test: 'This is a test'});
 })
 
-app.use(bodyParser.urlencoded({ extended: true }));
+//Add new entries by POST, using an html form
+app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/submit', function(req, res){
     var newentry = new Entry({
         name: req.body.name,
