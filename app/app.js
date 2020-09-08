@@ -5,8 +5,9 @@ const fs = require('fs');
 
 app = express();
 
+//getting database uri from secret,dburis.json file
+//must be a json file containing an array of strings
 dburi = JSON.parse(fs.readFileSync('secret.dburis.json'))[0];
-console.log(dburi);
 
 app.set('view engine', 'ejs');
 app.get('/', function(req, res){
