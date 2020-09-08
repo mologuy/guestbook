@@ -1,6 +1,6 @@
 const express = require('express');
-const db = require('./db')
 const ejs = require('ejs');
+const {Entry} = require('./db');
 
 app = express();
 
@@ -12,4 +12,5 @@ app.get('/', function(req, res){
 //serve the rest of the files, located in public
 app.use(express.static('public'));
 
+//exposing the app
 module.exports = app;

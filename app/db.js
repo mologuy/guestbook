@@ -16,4 +16,13 @@ db.once('open', function() {
   console.log('Connected to database');
 });
 
-module.exports = db;
+//defining the Entry model for the database
+const entrySchema = new mongoose.Schema({
+    name: {type: String, default: 'Anonymous'},
+    body: {type: String, default: null},
+    date: {type: Date, default: Date.now}
+});
+const Entry = mongoose.model('Entry', entrySchema);
+
+//exposing the Entry model
+module.exports = Entry;
