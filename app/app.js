@@ -7,7 +7,7 @@ app = express();
 
 app.set('view engine', 'ejs');
 app.get('/', function(req, res){
-    res.render('index', {test: 'This is a test'});
+    res.render('index', {test1: 'This is a test'});
 })
 
 //Add new entries by POST, using an html form
