@@ -15,14 +15,17 @@
     <div class="container">
         <form id="entry-form" method="POST" action="/submit">
             <input name="name" type="text" placeholder="Name">
+            <textarea form="entry-form" name="body" placeholder="Your Message"></textarea>
             <input type="submit" name="Submit">
         </form>
-        <textarea form="entry-form" name="body" placeholder="Your Message"></textarea>
+        
         <% if (!error) {%> 
         <% const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] %> 
         <%  for (let i = 0; i < entries.length; i++) { %>
-            <div><%=entries[i].name; %></div>
-            <div><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%> </div>
+            <div class="entry">
+                <div><%=entries[i].name; %></div>
+                <div><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%> </div>
+            </div>
         <%  } %>
         <% } else { %>
             <div><%= 'Database Error' %></div>
