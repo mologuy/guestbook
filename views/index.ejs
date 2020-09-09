@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>Page Title</title>
+    <title>Guestbook App</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <form id="entry-form" method="POST" action="/submit">
-            <input name="name" type="text" placeholder="Name">
+            <input name="name" type="text" placeholder="Name (required)" required>
             <textarea form="entry-form" name="body" placeholder="Your Message"></textarea>
             <input type="submit" name="Submit">
         </form>
