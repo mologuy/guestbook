@@ -5,9 +5,17 @@ const {Entry} = require('./db');
 
 app = express();
 
+//serve dynamic frontpage with all the entries (max: 255)
 app.set('view engine', 'ejs');
 app.get('/', function(req, res){
-    res.render('index', {test1: 'This is a test'});
+    Entry.find().sort({date: 'desc'}).limit(255)
+    .then(function(results){
+        res.render('index', {entries: results, error: false});
+    })
+    .catch((err)=>{
+        console.error.bind(console, err);
+        res.render('index', {entries: [], error: true});
+    });
 })
 
 //Add new entries by POST, using an html form

@@ -13,7 +13,15 @@
 </head>
 <body>
     <div class="container">
-        <%= test1 %> 
+        <% if (!error) {%> 
+        <% const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] %> 
+        <%  for (let i = 0; i < entries.length; i++) { %>
+            <div><%=entries[i].name; %></div>
+            <div><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%> </div>
+        <%  } %>
+        <% } else { %>
+            <div><%= 'Database Error' %></div>
+        <% } %>  
     </div>
 </body>
 </html>
