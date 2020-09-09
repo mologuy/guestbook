@@ -49,18 +49,20 @@ app.post('/submit', function (req, res) {
     }
     catch(err) {
         console.log(err);
-        res.status(500).redirect('/error');
+        res.redirect('/error');
     }
 });
 
 app.get('/success', function(req, res){
     res.send(`
     <div>Sucess</div>
-    <div><a href="/">Return</a></div>
-    `);
+    <div><a href="/">Retu</a></div>
+    `)
 });
 
-app.get('/error', function(req, res){});
+app.get('/error', function(req, res){
+    res.status(500).send('error');
+});
 
 //serve the rest of the files, located in public
 app.use(express.static('public'));
