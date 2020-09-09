@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/submit', function (req, res) {
     try {
         //trimming fields
-        req.body.body.trim();
-        req.body.name.trim();
+        req.body.body = req.body.body.trim();
+        req.body.name = req.body.name.trim();
         //checking if name exists
         if(req.body.name == '')
             throw new Error('name is empty');
