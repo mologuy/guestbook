@@ -5,10 +5,10 @@ const { Entry } = require('./db');
 
 app = express();
 
-//serve dynamic frontpage with all the entries (max: 255)
+//serve dynamic frontpage with all the entries (max: 100)
 app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
-    Entry.find().sort({ date: 'desc' }).limit(255)
+    Entry.find().sort({ date: 'desc' }).limit(100)
         .then(function (results) {
             res.render('index', { entries: results, error: false });
         })
@@ -41,7 +41,7 @@ app.post('/submit', function (req, res) {
         newentry.save()
             .then(function (entry) {
                 console.log(entry);
-                res.redirect('/');
+                res.redirect('/success');
             })
             .catch(function (err) {
                 throw err;
@@ -49,9 +49,18 @@ app.post('/submit', function (req, res) {
     }
     catch(err) {
         console.log(err);
-        res.status(500).send(`<h1>HTTP Error 500</h1>`);
+        res.status(500).redirect('/error');
     }
 });
+
+app.get('/success', function(req, res){
+    res.send(`
+    <div>Sucess</div>
+    <div><a href="/">Return</a></div>
+    `);
+});
+
+app.get('/error', function(req, res){});
 
 //serve the rest of the files, located in public
 app.use(express.static('public'));
