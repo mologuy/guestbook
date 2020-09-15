@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <title>Guestbook App</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-
-    <!-- Favicon from: https://github.com/twitter/twemoji -->
-    <link rel="shortcut icon" href="favicon.ico">
-
-</head>
+<%- include('head.ejs'); %> 
 <body>
     <div class="container">
         <form id="entry-form" method="POST" action="/submit">
