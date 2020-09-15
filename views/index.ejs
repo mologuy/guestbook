@@ -3,6 +3,7 @@
 <%- include('head.ejs'); %> 
 <body>
     <div class="container">
+        <h1 class="title">Guestbook</h1>
         <form id="entry-form" method="POST" action="/submit">
             <input name="name" type="text" placeholder="Name (required)" required>
             <textarea form="entry-form" name="body" placeholder="Your Message"></textarea>
