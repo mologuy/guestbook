@@ -5,10 +5,10 @@ const { Entry } = require('./db');
 
 app = express();
 
-//serve dynamic frontpage with all the entries (max: 100)
+//serve dynamic frontpage with the latest 20 entries
 app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
-    Entry.find().sort({ date: 'desc' }).limit(100)
+    Entry.find().sort({ date: 'desc' }).limit(20)
         .then(function (results) {
             res.render('index', { entries: results, error: false });
         })
