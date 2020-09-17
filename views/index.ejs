@@ -5,20 +5,20 @@
     <div class="container">
         <h1 class="title">Guestbook</h1>
         <form id="entry-form" method="POST" action="/submit">
-            <input name="name" type="text" placeholder="Name (required)" required>
-            <textarea form="entry-form" name="body" placeholder="Your Message"></textarea>
-            <input type="submit" name="Submit">
+            <input id="form-name" name="name" type="text" placeholder="Name (required)" required>
+            <textarea id="form-comment" form="entry-form" name="body" placeholder="Your Message (optional)"></textarea>
+            <input id="submitbtn" type="submit" name="Submit">
         </form>
-        
+        <div class="entry-header">Latest Entries:</div>
         <% if (!error) {%> 
         <% const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] %> 
         <%  for (let i = 0; i < entries.length; i++) { %>
             <div class="entry">
                 <div class="name"><%=entries[i].name; %></div>
-                <% if(entries[i].body){ %>
-                <div class="comment"><%= entries[i].body %></div>
-                <% } %>  
                 <div class="date"><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%> </div>
+                <% if(entries[i].body){ %>
+                    <div class="comment"><%= entries[i].body %></div>
+                <% } %>  
             </div>
         <%  } %>
         <% } else { %>
