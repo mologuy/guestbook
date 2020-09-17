@@ -37,7 +37,7 @@ app.post('/submit', function (req, res) {
         //if body empty, make it null
         if (req.body.body == '')
             newentry.body = null;
-        
+        //saving entry and redirecting to success page
         newentry.save()
             .then(function (entry) {
                 console.log(entry);
@@ -48,20 +48,19 @@ app.post('/submit', function (req, res) {
             });
     }
     catch(err) {
+        //if there was an error, redirect to an error page
         console.log(err);
         res.redirect('/error');
     }
 });
 
 app.get('/success', function(req, res){
-    res.send(`
-    <div>Sucess</div>
-    <div><a href="/">Retu</a></div>
-    `)
+    res.render('success', {});
 });
 
 app.get('/error', function(req, res){
-    res.status(500).send('error');
+    res.status(500);
+    res.render('error');
 });
 
 //serve the rest of the files, located in public

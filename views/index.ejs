@@ -12,7 +12,7 @@
         <div class="entry-header">Latest Entries:</div>
         <% if (!error) {%> 
         <% const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] %> 
-        <%  for (let i = 0; i < entries.length; i++) { %>
+        <% for (let i = 0; i < entries.length; i++) { %>
             <div class="entry">
                 <div class="name"><%=entries[i].name; %></div>
                 <div class="date"><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%> </div>
