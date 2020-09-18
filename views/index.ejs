@@ -15,7 +15,7 @@
         <% for (let i = 0; i < entries.length; i++) { %>
             <div class="entry">
                 <div class="name"><%=entries[i].name; %></div>
-                <div class="date"><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%> </div>
+                <div class="date"><span title="<%= entries[i].date.toISOString() %>"><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%> </span></div>
                 <% if(entries[i].body){ %>
                     <div class="comment"><%= entries[i].body %></div>
                 <% } %>  
