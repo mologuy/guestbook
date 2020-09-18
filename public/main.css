@@ -6,6 +6,9 @@
     max-width: 960px;
     margin: 0 auto;
 }
+#entry-form {
+    padding: 0 10px;
+}
 #entry-form input, #entry-form textarea {
     display: block;
     padding: 10px;
@@ -31,6 +34,10 @@ textarea {
     font-size: 16px;
     font-weight: bold;
     border: 0;
+    width: 90px;
+}
+#submitbtn:hover {
+    background-color: #2a7dbc;
 }
 .title {
     font-size: 50px;
@@ -53,11 +60,11 @@ textarea {
     font-size: 20px;
 }
 .date {
-    font-style: italic;
+    opacity: 0.8;
     font-size: 16px;
 }
 .comment {
-    margin: 5px 0;
+    margin: 5px;
     font-size: 20px;
 }
 .entry-header {
