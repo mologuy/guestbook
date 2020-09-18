@@ -2,6 +2,9 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+a, a:visited {
+    color: #4169e1;
+}
 .container {
     max-width: 960px;
     margin: 0 auto;
@@ -9,7 +12,7 @@
 #entry-form {
     padding: 0 10px;
 }
-#entry-form input, #entry-form textarea {
+#entry-form > * {
     display: block;
     padding: 10px;
     border-radius: 4px;
