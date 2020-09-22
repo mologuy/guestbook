@@ -20,15 +20,20 @@ app.get('/', function (req, res) {
 
 //Add new entries by POST, using an html form
 //expects name and body fields
+const MAX_BODY = 280;
+const MAX_NAME = 50;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/submit', function (req, res) {
     try {
-        //trimming fields
+        //trimming the whitespace on the fields
         req.body.body = req.body.body.trim();
         req.body.name = req.body.name.trim();
         //checking if name exists
         if(req.body.name == '')
             throw new Error('name is empty');
+        //trimming strings to the max lenght
+        req.body.body = req.body.body.substring(0, MAX_BODY);
+        req.body.name = req.body.body.substring(0, MAX_NAME);
         var newentry = new Entry({
             name: req.body.name,
             body: req.body.body,
