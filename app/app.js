@@ -33,7 +33,7 @@ app.post('/submit', function (req, res) {
             throw new Error('name is empty');
         //trimming strings to the max lenght
         req.body.body = req.body.body.substring(0, MAX_BODY);
-        req.body.name = req.body.body.substring(0, MAX_NAME);
+        req.body.name = req.body.name.substring(0, MAX_NAME);
         var newentry = new Entry({
             name: req.body.name,
             body: req.body.body,
