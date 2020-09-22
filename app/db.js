@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 
-//getting database uri from secret,dburis.json file
+//getting database uri from secret.dburis.json file
 //must be a json file containing an array of strings
 dburi = JSON.parse(fs.readFileSync('secret.dburis.json'))[0];
 
