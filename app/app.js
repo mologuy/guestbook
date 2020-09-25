@@ -60,20 +60,20 @@ app.post('/submit', function (req, res) {
 });
 
 app.get('/success', function(req, res){
-    try {
-        //getting entry id from query with name "id"
-        Entry.findById(req.query.id)
-        .then(function (entry){
+    //getting entry id from query with name "id"
+    Entry.findById(req.query.id)
+    .then(function (entry){
+        if (entry) {
             res.render('success', entry);
-        })
-        .catch(function (err){
-            throw err;
-        });
-    }
-    catch(err) {
+        }
+        else {
+            res.redirect('/');
+        }
+    })
+    .catch(function(err){
         console.log(err);
         res.redirect('/');
-    }
+    });
 });
 
 app.get('/error', function(req, res){
