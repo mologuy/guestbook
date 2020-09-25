@@ -64,7 +64,7 @@ app.get('/success', function(req, res){
     Entry.findById(req.query.id)
     .then(function (entry){
         if (entry) {
-            res.render('success', entry);
+            res.render('success', {entry});
         }
         else {
             res.redirect('/');

@@ -4,7 +4,9 @@
     <body>
         <div class="container">
             <h1>Thanks!</h1>
-            <p>Your entry has been submitted, <%= name %>! </p>
+            <p>Your entry has been submitted, <%= entry.name %>!</p>
+            <div class="title-tag">Preview:</div>
+            <%- include('entries', {entries: [entry]}) %> 
             <p><a href="/">Click here to return</a></p>
         </div>
     </body>

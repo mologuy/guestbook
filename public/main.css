@@ -78,3 +78,7 @@ textarea {
 .entry > * {
     overflow-wrap: break-word;
 }
+.title-tag {
+    font-weight: bold;
+    font-size: 25px;
+}
