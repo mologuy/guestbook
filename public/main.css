@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    font-family: 'Roboto', sans-serif;
+}
+a, a:visited {
+    color: #4169e1;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+#entry-form {
+    padding: 0 10px;
+}
+#entry-form > * {
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+#form-comment, #form-name {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    width: 100%;
+}
+#form-comment {
+    height: 200px;
+}
+textarea {
+    resize: vertical;
+}
+#submitbtn {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    width: 90px;
+}
+.title {
+    font-size: 50px;
+    text-align: center;
+}
+.entry {
+    display: block;
+    margin: 10px 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+}
+.name::before {
+    display: inline;
+    content: "Name:";
+    font-weight: bold;
+    margin-right: 5px;
+}
+.name, .name::before {
+    font-size: 20px;
+}
+.date {
+    opacity: 0.8;
+    font-size: 16px;
+}
+.comment {
+    margin: 5px;
+    font-size: 20px;
+}
+.entry-header {
+    font-size: 30px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.entry > * {
+    overflow-wrap: break-word;
+}
+.title-tag {
+    font-weight: bold;
+    font-size: 25px;
+}
+.link-box {
+    display: flex;
+    background-color: #00aaff;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+.link-box:hover {
+    background-color: #0088cc;
+}
+.link-box > span {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0 2px;
+}
+.back-btn {
+    width: 100px;
+}

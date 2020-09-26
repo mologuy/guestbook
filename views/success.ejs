@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <%- include('head.ejs'); %> 
+    <body>
+        <div class="container">
+            <h1>Thanks!</h1>
+            <p>Your entry has been submitted, <%= entry.name %>!</p>
+            <div class="title-tag">Preview:</div>
+            <%- include('entries', {entries: [entry]}) %> 
+            <a href="/" class="link-box back-btn">
+                <span class="arrow">‹</span><span>Back</span>
+            </a>
+        </div>
+    </body>
+</html>
