@@ -2,7 +2,14 @@
 <html>
     <%- include('head.ejs'); %> 
     <body>
-        <p>Success</p>
-        <p><a href="/">Return</a></p>
+        <div class="container">
+            <h1>Thanks!</h1>
+            <p>Your entry has been submitted, <%= entry.name %>!</p>
+            <div class="title-tag">Preview:</div>
+            <%- include('entries', {entries: [entry]}) %> 
+            <a href="/" class="link-box back-btn">
+                <span class="arrow">‹</span><span>Back</span>
+            </a>
+        </div>
     </body>
 </html>

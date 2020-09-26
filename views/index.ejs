@@ -7,20 +7,11 @@
         <form id="entry-form" method="POST" action="/submit">
             <input id="form-name" name="name" type="text" maxlength="50" placeholder="Name (required)" required>
             <textarea id="form-comment" form="entry-form" name="body" maxlength="280" placeholder="Your Message (max. 280 characters)"></textarea>
-            <input id="submitbtn" type="submit" name="Submit">
+            <input id="submitbtn" class="link-box" type="submit" name="Submit">
         </form>
         <div class="entry-header">Latest Entries:</div>
         <% if (!error) {%> 
-        <% const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] %> 
-        <% for (let i = 0; i < entries.length; i++) { %>
-            <div class="entry">
-                <div class="name"><%=entries[i].name; %></div>
-                <div class="date"><span title="<%= entries[i].date.toISOString() %>"><%=entries[i].date.getDate() + '/' + months[entries[i].date.getMonth()] + '/' + entries[i].date.getFullYear()%></span></div>
-                <% if(entries[i].body){ %>
-                    <div class="comment"><%= entries[i].body %></div>
-                <% } %>  
-            </div>
-            <% } %>
+            <%- include('entries', entries) %> 
         <% } else { %>
             <div><%= 'Database Error' %></div>
         <% } %>  

@@ -45,8 +45,8 @@ app.post('/submit', function (req, res) {
         //saving entry and redirecting to success page
         newentry.save()
             .then(function (entry) {
-                console.log(entry);
-                res.redirect('/success');
+                //sending id as a parameter
+                res.redirect(`/success?id=${entry._id}`);
             })
             .catch(function (err) {
                 throw err;
@@ -60,7 +60,20 @@ app.post('/submit', function (req, res) {
 });
 
 app.get('/success', function(req, res){
-    res.render('success', {});
+    //getting entry id from query with name "id"
+    Entry.findById(req.query.id)
+    .then(function (entry){
+        if (entry) {
+            res.render('success', {entry});
+        }
+        else {
+            res.redirect('/');
+        }
+    })
+    .catch(function(err){
+        console.log(err);
+        res.redirect('/');
+    });
 });
 
 app.get('/error', function(req, res){
