@@ -7,7 +7,9 @@
             <p>Your entry has been submitted, <%= entry.name %>!</p>
             <div class="title-tag">Preview:</div>
             <%- include('entries', {entries: [entry]}) %> 
-            <p><a href="/">Click here to return</a></p>
+            <a href="/" class="link-box back-btn">
+                <span class="arrow">‹</span><span>Back</span>
+            </a>
         </div>
     </body>
 </html>

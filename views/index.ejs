@@ -7,7 +7,7 @@
         <form id="entry-form" method="POST" action="/submit">
             <input id="form-name" name="name" type="text" maxlength="50" placeholder="Name (required)" required>
             <textarea id="form-comment" form="entry-form" name="body" maxlength="280" placeholder="Your Message (max. 280 characters)"></textarea>
-            <input id="submitbtn" type="submit" name="Submit">
+            <input id="submitbtn" class="link-box" type="submit" name="Submit">
         </form>
         <div class="entry-header">Latest Entries:</div>
         <% if (!error) {%> 

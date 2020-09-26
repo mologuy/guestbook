@@ -31,16 +31,12 @@ textarea {
     resize: vertical;
 }
 #submitbtn {
-    background-color: #226699;
     color: #ffffff;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     border: 0;
     width: 90px;
-}
-#submitbtn:hover {
-    background-color: #2a7dbc;
 }
 .title {
     font-size: 50px;
@@ -81,4 +77,26 @@ textarea {
 .title-tag {
     font-weight: bold;
     font-size: 25px;
+}
+.link-box {
+    display: flex;
+    background-color: #00aaff;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+.link-box:hover {
+    background-color: #0088cc;
+}
+.link-box > span {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0 2px;
+}
+.back-btn {
+    width: 100px;
 }
