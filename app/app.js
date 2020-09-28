@@ -81,6 +81,11 @@ app.get('/error', function(req, res){
     res.render('error');
 });
 
+//serving pagination
+app.get('/page/:pageNum', function (req, res) {
+    res.render('pages', {pagenum: req.params.pageNum});
+});
+
 //serve the rest of the files, located in public
 app.use(express.static('public'));
 
