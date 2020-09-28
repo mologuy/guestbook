@@ -13,8 +13,13 @@
         <% if (!error) {%> 
             <%- include('entries', entries) %> 
         <% } else { %>
-            <div><%= 'Database Error' %></div>
-        <% } %>  
+        <div><%= 'Database Error' %></div>
+        <% } %>
+        <% if (entries.length >= 10) { %>   
+        <a href="/page/1" class="link-box">
+            <span>See more...</span>
+        </a>
+        <% } %>
     </div>
 </body>
 </html>
