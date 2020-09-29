@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const path = require('path');
 const { Entry } = require('./db');
 
 app = express();
@@ -81,9 +82,35 @@ app.get('/error', function(req, res){
     res.render('error');
 });
 
+
 //serving pagination
-app.get('/page/:pageNum', function (req, res) {
-    res.render('pages', {pagenum: req.params.pageNum});
+const PAGE_ITEMS = 20;
+app.get('/entries/page/:pageNum(\\d+)', function (req, res, next) {
+    var pagenum = parseInt(req.params.pageNum, 10);
+    if (!isNaN(pagenum)) {
+        const initialIndex = (pagenum - 1) * PAGE_ITEMS;
+        Entry.find({}).sort({date: 'desc'}).skip(initialIndex).limit(PAGE_ITEMS)
+        .then(function (results){
+            Entry.find().estimatedDocumentCount()
+            .then(function(result){
+                var maxpages = Math.ceil(result/PAGE_ITEMS);
+                if (pagenum > maxpages)
+                    pagenum = maxpages;
+                res.render('pages', {entries: results, currentpage: pagenum, maxpages: maxpages});
+            })
+            .catch (function (err){
+                console.log(err);
+                res.render('pages', {entries: results, currentpage: pagenum, maxpages: 0});
+            });
+        })
+        .catch(function (err){
+            console.log(err);
+            res.redirect('/');
+        });
+    }
+    else {
+        next();
+    }
 });
 
 //serve the rest of the files, located in public

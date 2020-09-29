@@ -3,7 +3,9 @@
 <%- include('head.ejs'); %> 
 <body>
     <div class="container">
-        <%= pagenum %> 
+        <%- include('entries.ejs', entries); %>
+        <%= currentpage %> 
+        <%= maxpages %> 
     </div>
 </body>
 </html>
